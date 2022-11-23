@@ -105,11 +105,17 @@ posts.forEach((element) => {
 });
 
 // Like al click cambia colore e avanza di un num nel contatore
-const bottoneLike = document.querySelector('.js-like-button');
+const bottoneLike = document.querySelectorAll('.js-like-button');
 
-bottoneLike.addEventListener("click",
-  function(){
-    bottoneLike.classList.add('like-button--liked');
-  }
+bottoneLike.forEach((liked) => {
+  liked.addEventListener("click",
+    function(){
+      this.classList.add('like-button--liked');
+    }
+  );
+}
 );
+
+
+
 
