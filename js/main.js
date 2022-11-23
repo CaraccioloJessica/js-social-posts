@@ -93,7 +93,7 @@ posts.forEach((element) => {
       </div>
       <div class="likes__counter">
         Piace a 
-        <b id="like-counter-1" class="js-likes-counter">
+        <b id="like-counter-${element.id}" class="js-likes-counter">
         ${element.likes} 
         </b>
         persone
@@ -107,11 +107,17 @@ posts.forEach((element) => {
 // Like al click cambia colore e avanza di un num nel contatore
 const bottoneLike = document.querySelectorAll('.js-like-button');
 
-bottoneLike.forEach((liked) => {
+bottoneLike.forEach((liked,i) => {
   liked.addEventListener("click",
-    function(){
-      this.classList.add('like-button--liked');
-    }
+  function(){                        
+    // Cambio colore like
+    liked.classList.add('like-button--liked');
+    // Incremento i like
+    let likes = posts[i].likes;
+    let id = i + 1;
+    let counter = document.getElementById(`like-counter-${id}`);
+    counter.innerHTML = likes + 1;
+  }
   );
 }
 );
