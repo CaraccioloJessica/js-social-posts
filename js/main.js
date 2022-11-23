@@ -86,10 +86,10 @@ posts.forEach((element) => {
   <div class="post__footer">
     <div class="likes js-likes">
       <div class="likes__cta">
-        <a class="like-button  js-like-button" href="#" data-postid="1">
+        <div class="like-button js-like-button" data-postid="${element.id}">
           <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
           <span class="like-button__label">Mi Piace</span>
-        </a>
+        </div>
       </div>
       <div class="likes__counter">
         Piace a 
@@ -100,5 +100,16 @@ posts.forEach((element) => {
       </div>
     </div> 
   </div>            
-</div>`
+</div>
+`
 });
+
+// Like al click cambia colore e avanza di un num nel contatore
+const bottoneLike = document.querySelector('.js-like-button');
+
+bottoneLike.addEventListener("click",
+  function(){
+    bottoneLike.classList.add('like-button--liked');
+  }
+);
+
